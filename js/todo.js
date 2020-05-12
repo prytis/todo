@@ -79,6 +79,7 @@ const DOMdeadlineInput = DOMform.querySelector('input[name="deadline"]');
 const DOMformAdd = DOMformActions.querySelector('.btn.add')
 const DOMformClear = DOMformActions.querySelector('.btn.clear');
 
+DOMdeadlineInput.value = formatedDate( 86400000 );
 DOMformClear.addEventListener('click',clearForm);
 
 function clearForm(){
@@ -86,17 +87,57 @@ function clearForm(){
     DOMdeadlineInput.value = "";
 
 }
-console.log(todo_list);
+
 DOMformAdd.addEventListener('click', addNewTodoItem);
 
 function addNewTodoItem(){
     let newTodo = {
         description: DOMtaskTextarea.value.trim(),
         deadline: DOMdeadlineInput.value.trim(),
-        created_on: new Date() ,
+        created_on: formatedDate() ,
         status: 'todo'
     };
-    console.log(newTodo);
-    renderList(newTodo);
-    return newTodo;
+    
+    if ( newTodo.description.length === 0 ) {
+        return alert('ERROR: tuscias aprasymas');
+    }
+    
+    if ( newTodo.deadline.length > 0 &&
+        (new Date(newTodo.deadline)).toString() === 'Invalid Date' ) {
+        return alert('ERROR: nevalidus deadline');
+    }
+    
+    todo_list.push( newTodo );
+    
+    return;
+}
+
+function formatedDate( deltaTime = 0 ) {
+    let now = new Date();
+
+    if ( deltaTime !== 0 ) {
+        now = new Date( Date.now() + deltaTime );
+    }
+
+    let minutes = now.getMinutes();
+    let hours = now.getHours();
+    let days = now.getDate();
+    let month = now.getMonth() + 1;
+    const year = now.getFullYear();
+    
+    if ( minutes < 10 ) {
+        minutes = '0'+minutes;
+    }
+    if ( hours < 10 ) {
+        hours = '0'+hours;
+    }
+    if ( days < 10 ) {
+        days = '0'+days;
+    }
+    if ( month < 10 ) {
+        month = '0'+month;
+    }
+
+    return year+'-'+month+'-'+days+' '+hours+':'+minutes;
+}
 }
