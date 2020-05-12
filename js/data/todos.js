@@ -3,7 +3,7 @@ let todo_list = [
         description: 'Priskaldyti malku' ,
         deadline: '2020.05.08' ,
         created_on: '2020.05.01' ,
-        status: 'todo',
+        status: 'in-pr',
     },
     {
         description: 'Isgerti arbatos' ,

@@ -9,18 +9,30 @@
 </head>
 
 <body>
-   <div class="container" 
-    <form class="form">
-            New task
+   <div id="todo" class="container">
+       <div class="global-actions">
+           <div class="action remove">Remove all</div>
+       </div>
+        <form class="form">
+            <fieldset>
+                <label for="task">Task</label>
+                <textarea name="task"></textarea>
+            </fieldset>
+            <fieldset>
+                <label for="deadline">Deadline</label>
+                <input type="text" name="deadline" placeholder="YYYY-MM-DD HH-MM"></input>
+            </fieldset>
+            <div class="actions">
+                <div class="btn add">Add new</div>
+                <div class="btn clear">Clear form</div>
+            </div>
         </form>
     </div>
-</div> 
-</body>
     <script src="./js/data/todos.js"></script>
     <script src="./js/todo.js"></script>
+    <!-- <script src="./js/eventLoops.js"></script> -->
+</body>
     
-    <!-- <script src="./js/ivent.js"></script> -->
-    <script src="./js/eventLoops.js"></script>
    
 
 
