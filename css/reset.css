@@ -57,11 +57,13 @@ body {
         padding: 10px;
         line-height: 20px;
         max-height: 270px;
+        font-size: 24px;
     }
 
     .container > .form > fieldset > input {
         width: 100%;
         display: inline-block;
+        font-size: 24px;
     }
 
     .container > .form > .actions {
@@ -139,11 +141,17 @@ body {
         display: inline-block;
         padding: 10px 15px;
         margin-right: 20px;
-        background-color: blue;
-        color: white;
+        
 
     }
-
+    .form > .actions > .btn.add{
+        background-color: blue;
+        color: white;
+    }
+    .form > .actions > .btn.clear{
+        background-color: blue;
+        color: white;
+    }
 
 
     @media ( min-width: 500px ) {
